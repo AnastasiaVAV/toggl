@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { fetchTogglData } from './utils/fetch.js'
+import fetchTogglData from './utils/fetch.js'
 
 async function generateCard() {
   const projects = await fetchTogglData()
