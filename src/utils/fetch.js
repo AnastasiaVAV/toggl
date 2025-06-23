@@ -4,10 +4,16 @@ import { Buffer } from 'buffer'
 const TOGGL_API_KEY = process.env.TOGGL_API_KEY
 const WORKSPACE_ID = process.env.WORKSPACE_ID
 
-export async function fetchTogglData() {
+export default async () => {
   const today = new Date()
   const firstDay = new Date(today.getFullYear(), today.getMonth(), 1)
-
+  // const response = await axios.get('https://api.track.toggl.com/api/v9/me', {
+  //   headers: {
+  //     "Authorization": `Basic ${base64.encode(0e4455976494c62d301f2c096d30c575:api_token)}`
+  //   },
+  // })
+  // console.log(response)
+  // return response
   try {
     const response = await axios.get(
       `https://api.track.toggl.com/reports/api/v3/workspace/${WORKSPACE_ID}/summary`,
@@ -33,3 +39,9 @@ export async function fetchTogglData() {
     return []
   }
 }
+
+// fetchToggleData(0e4455976494, 9097298, volkovaanastasia301, Triada180696)
+
+// curl -u "0e4455976494c62d301f2c096d30c575:api_token" \
+//   -H "User-Agent: volkovaanastasia301@gmail.com" \
+//   https://api.track.toggl.com/api/v9/me
