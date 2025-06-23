@@ -1,10 +1,10 @@
-// const fs = require('fs')
-const axios = require('axios')
+import axios from 'axios'
+import { Buffer } from 'buffer'
 
 const TOGGL_API_KEY = process.env.TOGGL_API_KEY
 const WORKSPACE_ID = process.env.WORKSPACE_ID
 
-async function fetchTogglData() {
+export async function fetchTogglData() {
   const today = new Date()
   const firstDay = new Date(today.getFullYear(), today.getMonth(), 1)
 
@@ -33,5 +33,3 @@ async function fetchTogglData() {
     return []
   }
 }
-
-module.exports = fetchTogglData

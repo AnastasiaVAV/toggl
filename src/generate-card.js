@@ -1,5 +1,5 @@
-const fs = require('fs')
-const fetchTogglData = require('./update-toggl')
+import fs from 'fs'
+import { fetchTogglData } from './utils/fetch.js'
 
 async function generateCard() {
   const projects = await fetchTogglData()
